@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 public class Elephant extends Actor
-{
+{   
     public void act()
     {
         if(Greenfoot.isKeyDown("a")){
@@ -11,10 +11,18 @@ public class Elephant extends Actor
             move(2);
         }
         
-        eat();
+        // Check mouse info
+        MouseInfo mouseInfo = Greenfoot.getMouseInfo();
+        if(mouseInfo != null) {
+            int x = mouseInfo.getX();
+            int y = mouseInfo.getY();
+            setLocation(x, y);
+        }
+
+        checkIfEatApple();
     }
-    
-    private void eat() {
+
+    private void checkIfEatApple() {
         // Eat the apple
         if(isTouching(Apple.class)) {
             removeTouching(Apple.class);

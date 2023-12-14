@@ -4,11 +4,14 @@ public class MyWorld extends World
 {
     private int score = 0;
     private Label scoreLabel;
+    TitleWorld titleWorld;   
     
     
-    public MyWorld()
+    public MyWorld(TitleWorld titleWorld)
     {    
         super(600, 400, 1, false);
+        this.titleWorld = titleWorld;
+        
         Elephant elephant = new Elephant();
         addObject(elephant, 300, 300);
         spawnApple();
